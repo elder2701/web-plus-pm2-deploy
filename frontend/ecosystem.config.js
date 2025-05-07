@@ -14,7 +14,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: DEPLOY_REPOSITORY,
       path: DEPLOY_PATH,
-      'post-deploy': 'cd frontend && pwd && npm ci && npm run build',
+      'post-deploy': `export PATH=/home/${DEPLOY_USER}/.nvm/versions/node/v14.21.3/bin:$PATH && npm --prefix frontend ci && npm --prefix frontend run build`,
     },
   },
 };
