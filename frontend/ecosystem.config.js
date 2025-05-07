@@ -14,10 +14,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: DEPLOY_REPOSITORY,
       path: DEPLOY_PATH,
-      'post-deploy': 'export NVM_DIR="$HOME/.nvm" && \
-                      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
-                      nvm use 14 && \
-                      cd frontend && pwd && npm ci && npm run build'
+      'post-deploy': `cd frontend && /home/${DEPLOY_USER}/.nvm/versions/node/v14.21.3/bin/node /home/${DEPLOY_USER}/.nvm/versions/node/v14.21.3/bin/npm ci && /home/${DEPLOY_USER}/.nvm/versions/node/v14.21.3/bin/node /home/${DEPLOY_USER}/.nvm/versions/node/v14.21.3/bin/npm run build`
     },
   },
 };
